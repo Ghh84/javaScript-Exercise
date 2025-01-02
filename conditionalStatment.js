@@ -54,3 +54,52 @@ if (Number.isNaN(Number(number2)) || Number.isNaN(Number(number3))) {
     }
     console.log(result);
 }
+
+/*
+LAB 2 Conditional Statement 
+
+Scenario
+
+During the last modification of the program with the contact list, we allow the user to add a new contact with the data entered by
+ the user while the program is executing. Let's go a step further – try to modify the program so that the user has a choice of what 
+ they want to do with the list. They will have a choice of:
+
+    showing the first contact (first)
+    showing the last contact (last)
+    adding a new contact (new)
+
+When adding a new contact, check if the user has entered all the necessary data. If at least one of the three values is missing 
+(name, phone, or email) don't add the contact.
+*/
+let contacts = [{
+    name: "Maxwell Wright",
+    phone: "(0191) 719 6495",
+    email: "Curabitur.egestas.nunc@nonummyac.co.uk"
+}, {
+    name: "Raja Villarreal",
+    phone: "0866 398 2895",
+    email: "posuere.vulputate@sed.com"
+}, {
+    name: "Helen Richards",
+    phone: "0800 1111",
+    email: "libero@convallis.edu"
+}];
+let choice = prompt("Enter your choice", "first");
+if (choice === "first") {
+    console.log(`${contacts[0].name} / ${contacts[0].phone} / ${contacts[0].email}`);
+} else if (choice === "last") {
+    let last = contacts.length - 1;
+    console.log(`${contacts[last].name} / ${contacts[last].phone} / ${contacts[last].email}`);
+}
+else if (choice === "new") {
+    let newName = prompt("Name of new contact, enter the name ");
+    let newPhone = prompt("Phone number, enter the number");
+    let newEmail = prompt("Email , enter email");
+    if (newName && newPhone && newEmail) {
+        let newContact = { name: newName, phone: newPhone, email: newEmail }
+        contacts.push(newContact)
+    }
+    else {
+        console.log("Error");
+    }
+}
