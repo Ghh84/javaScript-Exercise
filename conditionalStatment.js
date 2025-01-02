@@ -103,3 +103,6 @@ else if (choice === "new") {
         console.log("Error");
     }
 }
+else {
+    console.log("Error");
+}
